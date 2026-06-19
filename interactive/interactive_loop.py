@@ -168,6 +168,8 @@ def main():
     ct_dir = os.path.join(args.input_interface, "input", "images", "ct")
     pet_dir = os.path.join(args.input_interface, "input", "images", "pet")
     seg_dir = os.path.join(args.input_interface, "output", "images", "tumor-lesion-segmentation")
+    cache_dir = os.path.join(args.input_interface, "cache")
+    Path(cache_dir).mkdir(exist_ok=True)
 
     # -------------------------------------------------------------------------
     # Case loop
@@ -186,7 +188,7 @@ def main():
         case_dict[tag] = []
 
         # Clean interface
-        for d in [ct_dir, pet_dir, seg_dir]:
+        for d in [ct_dir, pet_dir, seg_dir, cache_dir]:
             clean_directory(d)
 
         try:
