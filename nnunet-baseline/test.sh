@@ -21,6 +21,8 @@ echo ""
 VOLUME_SUFFIX=$(dd if=/dev/urandom bs=32 count=1 | md5sum | cut --delimiter=' ' --fields=1)
 MEM_LIMIT="30g"  # Maximum is currently 30g, configurable in your algorithm image settings on grand challenge
 
+mkdir -p $SCRIPTPATH/test/cache/
+
 echo "Running evaluation"
 # Do not change any of the parameters to docker run, these are fixed
 # --gpus="device=0" \
